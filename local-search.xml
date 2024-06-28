@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>vue3+ts接口请求防抖</title>
+    <link href="/2024/06/28/vue3-ts%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%98%B2%E6%8A%96/"/>
+    <url>/2024/06/28/vue3-ts%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%98%B2%E6%8A%96/</url>
+    
+    <content type="html"><![CDATA[<p>在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。<br>这里使用的是<code>lodash</code> 库。前端开发环境为<code>node v18.20.2 + vue3 + ts</code></p><h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">pnpm install --save lodash<br>pnpm install --save-dev @types/lodash<br></code></pre></td></tr></table></figure><h4 id="debounce使用"><a href="#debounce使用" class="headerlink" title="debounce使用"></a>debounce使用</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; debounce &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lodash&#x27;</span>;<br><br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">SearchParams</span> &#123;<br>    <span class="hljs-attr">query</span>: <span class="hljs-built_in">string</span>;<br>&#125;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">performSearch</span>(<span class="hljs-params">params: SearchParams</span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt; &#123;<br>    <span class="hljs-comment">// 模拟异步搜索逻辑</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Searching for &quot;<span class="hljs-subst">$&#123;params.query&#125;</span>&quot;`</span>);<br>    <span class="hljs-comment">// ...实际的搜索逻辑</span><br>&#125;<br><br><span class="hljs-comment">// 使用debounce包装performSearch函数，等待300毫秒后再执行</span><br><span class="hljs-keyword">const</span> debouncedSearch = <span class="hljs-title function_">debounce</span>(<span class="hljs-function">(<span class="hljs-params">params: SearchParams</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">performSearch</span>(params);<br>&#125;, <span class="hljs-number">300</span>);<br><br><span class="hljs-comment">// 假设这是用户输入触发的搜索函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">onSearchInputChange</span>(<span class="hljs-params">query: <span class="hljs-built_in">string</span></span>) &#123;<br>    <span class="hljs-comment">// 当输入变化时，调用防抖后的搜索函数</span><br>    <span class="hljs-title function_">debouncedSearch</span>(&#123; query &#125;);<br>&#125;<br><br><span class="hljs-comment">// 示例调用</span><br><span class="hljs-title function_">onSearchInputChange</span>(<span class="hljs-string">&#x27;typescript&#x27;</span>);<br><span class="hljs-comment">// 在300毫秒内连续调用将不会立即执行performSearch，而是在最后一次调用后的300毫秒后执行</span><br></code></pre></td></tr></table></figure><p><code>lodash</code>库应该是一个工具集成库，还包括<strong>节流</strong>等等，可以百度看看其他简便用法。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue3</tag>
+      
+      <tag>ts</tag>
+      
+      <tag>接口防抖</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>记一次docker默认目录迁移</title>
     <link href="/2024/06/24/%E8%AE%B0%E4%B8%80%E6%AC%A1docker%E9%BB%98%E8%AE%A4%E7%9B%AE%E5%BD%95%E8%BF%81%E7%A7%BB/"/>
     <url>/2024/06/24/%E8%AE%B0%E4%B8%80%E6%AC%A1docker%E9%BB%98%E8%AE%A4%E7%9B%AE%E5%BD%95%E8%BF%81%E7%A7%BB/</url>
@@ -155,9 +184,9 @@
     
     <tags>
       
-      <tag>java</tag>
-      
       <tag>jar</tag>
+      
+      <tag>java</tag>
       
       <tag>windows</tag>
       
