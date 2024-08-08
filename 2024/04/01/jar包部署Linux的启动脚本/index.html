@@ -16,15 +16,15 @@
   <meta name="author" content="crudby">
   <meta name="keywords" content="">
   
-    <meta name="description" content="单独jar包放在服务器执行时，出现更新或需要重启情况下使用脚本来处理。把服务jar包放同名目录下，再新建脚本文件touch startup.sh 123456789101112131415161718192021222324252627282930# 接收第一个命令行参数作为项目名称project_name&#x3D;$1# 使用readlink -f 和 dirname 获取当前脚本的绝对路径，并提取其所">
+    <meta name="description" content="jar包部署Linux的启动脚本脚本实现单独jar包放在服务器执行时，出现更新或需要重启情况下使用脚本来处理。把服务jar包放同名目录下，再新建脚本文件touch startup.sh 123456789101112131415161718192021222324252627282930# 接收第一个命令行参数作为项目名称project_name&#x3D;$1# 使用readlink -f 和 dirna">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jar包部署Linux的启动脚本">
 <meta property="og:url" content="https://crudby.github.io/2024/04/01/jar%E5%8C%85%E9%83%A8%E7%BD%B2Linux%E7%9A%84%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="CRUD日志">
-<meta property="og:description" content="单独jar包放在服务器执行时，出现更新或需要重启情况下使用脚本来处理。把服务jar包放同名目录下，再新建脚本文件touch startup.sh 123456789101112131415161718192021222324252627282930# 接收第一个命令行参数作为项目名称project_name&#x3D;$1# 使用readlink -f 和 dirname 获取当前脚本的绝对路径，并提取其所">
+<meta property="og:description" content="jar包部署Linux的启动脚本脚本实现单独jar包放在服务器执行时，出现更新或需要重启情况下使用脚本来处理。把服务jar包放同名目录下，再新建脚本文件touch startup.sh 123456789101112131415161718192021222324252627282930# 接收第一个命令行参数作为项目名称project_name&#x3D;$1# 使用readlink -f 和 dirna">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-01T03:45:46.000Z">
-<meta property="article:modified_time" content="2024-06-20T06:29:41.318Z">
+<meta property="article:modified_time" content="2024-08-08T02:05:01.372Z">
 <meta property="article:author" content="crudby">
 <meta property="article:tag" content="jar">
 <meta property="article:tag" content="脚本">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          403 字
+          415 字
         
       </span>
     
@@ -274,7 +274,7 @@
             
               <div class="markdown-body">
                 
-                <p>单独jar包放在服务器执行时，出现更新或需要重启情况下使用脚本来处理。把服务jar包放<strong>同名</strong>目录下，再新建脚本文件<code>touch startup.sh</code></p>
+                <h2 id="jar包部署Linux的启动脚本"><a href="#jar包部署Linux的启动脚本" class="headerlink" title="jar包部署Linux的启动脚本"></a>jar包部署Linux的启动脚本</h2><h3 id="脚本实现"><a href="#脚本实现" class="headerlink" title="脚本实现"></a>脚本实现</h3><p>单独jar包放在服务器执行时，出现更新或需要重启情况下使用脚本来处理。把服务jar包放<strong>同名</strong>目录下，再新建脚本文件<code>touch startup.sh</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">接收第一个命令行参数作为项目名称</span><br>project_name=$1<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">使用<span class="hljs-built_in">readlink</span> -f 和 <span class="hljs-built_in">dirname</span> 获取当前脚本的绝对路径，并提取其所在目录作为base_dir</span><br>base_dir=$(dirname &quot;$(readlink -f &quot;$0&quot;)&quot;)<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">在base_dir目录下查找以.jar结尾、同时确保路径中包含项目名称</span><br>jar_path=$(find &quot;$base_dir&quot; -name &#x27;*.jar&#x27; | grep &quot;$base_dir/$project_name&quot;)<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">通过jps列出所有Java进程，筛选出属于当前项目但排除jps自身的进程ID</span><br>to_kill=$(jps -l | grep -v Jps | grep &quot;$base_dir/$project_name&quot; | awk &#x27;&#123;print $1&#125;&#x27;)<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">检查是否有需要终止的旧进程</span><br>if [ -n &quot;$to_kill&quot; ]; then<br>    # 输出信息提示即将停止旧的应用实例<br>    echo &quot;Stopping existing application instances...&quot;<br>    # 使用xargs传递进程ID给kill命令，终止这些进程<br>    echo &quot;$to_kill&quot; | xargs kill -9<br>fi<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">根据项目名称创建日志文件名，位于base_dir目录下</span><br>log_file=&quot;$base_dir/$&#123;project_name&#125;.log&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">使用<span class="hljs-built_in">nohup</span>启动新的Java应用实例，使其在后台持续运行</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">设置JVM堆内存初始和最大值为1GB，时区为GMT+8</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">将标准输出和错误输出都重定向到上述定义的日志文件中</span><br>nohup java -jar -Xms1g -Xmx1g -Duser.timezone=GMT+8 &quot;$jar_path&quot; &gt;&gt; &quot;$log_file&quot; 2&gt;&amp;1 &amp;<br>echo &quot;Starting success!&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">脚本正常结束，返回码0表示成功</span><br>exit 0<br></code></pre></td></tr></table></figure>
 <p>执行命令<code>chmod +x startup.sh</code> 赋予执行权限<br><br/>执行命令<code>./startup.sh 项目名</code> 来启动&#x2F;重启服务</p>
 
@@ -369,9 +369,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/06/19/git%E9%85%8D%E7%BD%AEhttp-https%E4%BB%A3%E7%90%86/" title="git配置http/https代理">
+                      <a href="/2024/05/08/mysql%E4%B8%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="mysql不常用命令">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">git配置http/https代理</span>
+                        <span class="hidden-mobile">mysql不常用命令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

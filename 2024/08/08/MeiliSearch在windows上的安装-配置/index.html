@@ -16,24 +16,28 @@
   <meta name="author" content="crudby">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vue3+ts接口请求防抖1、业务背景在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。这里使用的是lodash 库。前端开发环境为node v18.20.2 + vue3 + ts 2、安装依赖12pnpm install --save lodashpnpm install --save-d">
+    <meta name="description" content="MeiliSearch在windows上的安装&amp;配置1、环境说明12操作系统：windows 11MeiliSearch：v1.9.0  2、服务下载在GitHub上可以下载最新的windows服务包，截至当前文章时间最新版本为v1.9.0;或在上面下载其他版本。下载好后，在D盘下新建目录MeiliSearch,将exe包放在里面。 3、配置&amp;启动3.1、官网文档在MeiliSea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue3+ts接口请求防抖">
-<meta property="og:url" content="https://crudby.github.io/2024/06/28/vue3-ts%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%98%B2%E6%8A%96/index.html">
+<meta property="og:title" content="MeiliSearch在windows上的安装&amp;配置">
+<meta property="og:url" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="CRUD日志">
-<meta property="og:description" content="vue3+ts接口请求防抖1、业务背景在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。这里使用的是lodash 库。前端开发环境为node v18.20.2 + vue3 + ts 2、安装依赖12pnpm install --save lodashpnpm install --save-d">
+<meta property="og:description" content="MeiliSearch在windows上的安装&amp;配置1、环境说明12操作系统：windows 11MeiliSearch：v1.9.0  2、服务下载在GitHub上可以下载最新的windows服务包，截至当前文章时间最新版本为v1.9.0;或在上面下载其他版本。下载好后，在D盘下新建目录MeiliSearch,将exe包放在里面。 3、配置&amp;启动3.1、官网文档在MeiliSea">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-28T06:45:37.000Z">
-<meta property="article:modified_time" content="2024-08-08T02:05:01.361Z">
+<meta property="og:image" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/Windows-install.png">
+<meta property="og:image" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B7%AF%E5%BE%84.png">
+<meta property="og:image" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E4%B8%BB%E5%AF%86%E9%92%A5.png">
+<meta property="og:image" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E9%A6%96%E6%AC%A1%E5%90%AF%E5%8A%A8.png">
+<meta property="og:image" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E5%90%AF%E5%8A%A8.png">
+<meta property="article:published_time" content="2024-08-08T01:41:29.000Z">
+<meta property="article:modified_time" content="2024-08-08T03:10:07.613Z">
 <meta property="article:author" content="crudby">
-<meta property="article:tag" content="vue3">
-<meta property="article:tag" content="ts">
-<meta property="article:tag" content="接口防抖">
+<meta property="article:tag" content="windows环境">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://crudby.github.io/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/Windows-install.png">
   
   
   
-  <title>vue3+ts接口请求防抖 - CRUD日志</title>
+  <title>MeiliSearch在windows上的安装&amp;配置 - CRUD日志</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">vue3+ts接口请求防抖</span>
+            <span id="subtitle">MeiliSearch在windows上的安装&配置</span>
           
         </div>
 
@@ -210,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-28 14:45" pubdate>
-          2024年6月28日 下午
+        <time datetime="2024-08-08 09:41" pubdate>
+          2024年8月8日 上午
         </time>
       </span>
     
@@ -222,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          299 字
+          694 字
         
       </span>
     
@@ -233,7 +237,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -270,16 +274,59 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">vue3+ts接口请求防抖</h1>
+            <h1 id="seo-header">MeiliSearch在windows上的安装&amp;配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="vue3-ts接口请求防抖"><a href="#vue3-ts接口请求防抖" class="headerlink" title="vue3+ts接口请求防抖"></a>vue3+ts接口请求防抖</h2><h3 id="1、业务背景"><a href="#1、业务背景" class="headerlink" title="1、业务背景"></a>1、业务背景</h3><p>在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。<br>这里使用的是<code>lodash</code> 库。前端开发环境为<code>node v18.20.2 + vue3 + ts</code></p>
-<h3 id="2、安装依赖"><a href="#2、安装依赖" class="headerlink" title="2、安装依赖"></a>2、安装依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">pnpm install --save lodash<br>pnpm install --save-dev @types/lodash<br></code></pre></td></tr></table></figure>
+                <h2 id="MeiliSearch在windows上的安装-配置"><a href="#MeiliSearch在windows上的安装-配置" class="headerlink" title="MeiliSearch在windows上的安装&amp;配置"></a>MeiliSearch在windows上的安装&amp;配置</h2><h3 id="1、环境说明"><a href="#1、环境说明" class="headerlink" title="1、环境说明"></a>1、环境说明</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm">操作系统：windows <span class="hljs-number">11</span><br><span class="hljs-symbol">MeiliSearch</span>：<span class="hljs-built_in">v1</span>.<span class="hljs-number">9</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2-1、debounce使用"><a href="#2-1、debounce使用" class="headerlink" title="2.1、debounce使用"></a>2.1、debounce使用</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; debounce &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lodash&#x27;</span>;<br><br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">SearchParams</span> &#123;<br>    <span class="hljs-attr">query</span>: <span class="hljs-built_in">string</span>;<br>&#125;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">performSearch</span>(<span class="hljs-params">params: SearchParams</span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt; &#123;<br>    <span class="hljs-comment">// 模拟异步搜索逻辑</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Searching for &quot;<span class="hljs-subst">$&#123;params.query&#125;</span>&quot;`</span>);<br>    <span class="hljs-comment">// ...实际的搜索逻辑</span><br>&#125;<br><br><span class="hljs-comment">// 使用debounce包装performSearch函数，等待300毫秒后再执行</span><br><span class="hljs-keyword">const</span> debouncedSearch = <span class="hljs-title function_">debounce</span>(<span class="hljs-function">(<span class="hljs-params">params: SearchParams</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">performSearch</span>(params);<br>&#125;, <span class="hljs-number">300</span>);<br><br><span class="hljs-comment">// 假设这是用户输入触发的搜索函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">onSearchInputChange</span>(<span class="hljs-params">query: <span class="hljs-built_in">string</span></span>) &#123;<br>    <span class="hljs-comment">// 当输入变化时，调用防抖后的搜索函数</span><br>    <span class="hljs-title function_">debouncedSearch</span>(&#123; query &#125;);<br>&#125;<br><br><span class="hljs-comment">// 示例调用</span><br><span class="hljs-title function_">onSearchInputChange</span>(<span class="hljs-string">&#x27;typescript&#x27;</span>);<br><span class="hljs-comment">// 在300毫秒内连续调用将不会立即执行performSearch，而是在最后一次调用后的300毫秒后执行</span><br></code></pre></td></tr></table></figure>
-<p><code>lodash</code>库应该是一个工具集成库，还包括<strong>节流</strong>等等，可以百度看看其他简便用法。</p>
+<h3 id="2、服务下载"><a href="#2、服务下载" class="headerlink" title="2、服务下载"></a>2、服务下载</h3><p>在<a target="_blank" rel="noopener" href="https://github.com/meilisearch/meilisearch/releases/tag/v1.9.0">GitHub</a>上可以下载最新的<a target="_blank" rel="noopener" href="https://github.com/meilisearch/meilisearch/releases/download/v1.9.0/meilisearch-windows-amd64.exe">windows服务包</a>，截至当前文章时间最新版本为v1.9.0;或在上面下载其他版本。<br>下载好后，在D盘下新建目录<code>MeiliSearch</code>,将exe包放在里面。</p>
+<h3 id="3、配置-启动"><a href="#3、配置-启动" class="headerlink" title="3、配置&amp;启动"></a>3、配置&amp;启动</h3><h4 id="3-1、官网文档"><a href="#3-1、官网文档" class="headerlink" title="3.1、官网文档"></a>3.1、官网文档</h4><p>在<a target="_blank" rel="noopener" href="https://www.meilisearch.com/docs/learn/self_hosted/install_meilisearch_locally">MeiliSearch官网</a>可以找到本地环境安装的文档说明， 其中windows上安装的相关说明如下图,因为我们下载的是已经编译好的exe文件，所以看第三条，这里我本地已经安装了<code>MinGW</code>，所以后续启动没有问题，具体这些的区别可以参考<a target="_blank" rel="noopener" href="https://www.biaodianfu.com/cygwin-mingw-msys.html">Cygwin&#x2F;MinGW&#x2F;MSys&#x2F;WSL区别与联系</a></p>
+<img src="/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/Windows-install.png" srcset="/img/loading.gif" lazyload class="" title="安装说明">
+
+<h4 id="3-2、环境变量"><a href="#3-2、环境变量" class="headerlink" title="3.2、环境变量"></a>3.2、环境变量</h4><p>MeiliSearch有几个比较重要的变量，可以在执行时候命令行追加也可以在环境变量中维护，为方便维护记忆遂选择后者。这里可参考文章<a target="_blank" rel="noopener" href="https://www.javagame.top/column/DXBLOG202201190838590113922/DXBLOG202201190858284781775/detail.html">MeiliSearch V0.25使用教程</a>，下文部分摘抄于此</p>
+<h5 id="数据库路径"><a href="#数据库路径" class="headerlink" title="数据库路径"></a>数据库路径</h5><ul>
+<li>环境变量： MEILI_DB_PATH</li>
+<li>命令行： –db-path</li>
+<li>默认值： “data.ms&#x2F;“</li>
+<li>期望值： 文件路径</li>
+<li>描述： 指定创建和检索数据库文件的位置</li>
+</ul>
+<p><strong>这里我在<code>D:\MeiliSearch</code>目录下新建了db目录，并在环境变量中进行配置</strong></p>
+<img src="/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B7%AF%E5%BE%84.png" srcset="/img/loading.gif" lazyload class="" title="环境变量-数据库路径">
+
+<h5 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h5><ul>
+<li>环境变量： MEILI_ENV</li>
+<li>命令行： –env</li>
+<li>默认值： development</li>
+<li>期望值： production &#x2F; development</li>
+<li>描述： 配置实例的环境。值必须是production或development</li>
+</ul>
+<p><strong>这个变量我没有配置，本地启动的时候默认<code>development</code>，在启动日志中会打印</strong></p>
+<h5 id="地址和端口"><a href="#地址和端口" class="headerlink" title="地址和端口"></a>地址和端口</h5><ul>
+<li>环境变量： MEILI_HTTP_ADDR</li>
+<li>命令行： –http-addr</li>
+<li>默认值： “127.0.0.1:7700”</li>
+<li>期望值： 一个http地址和端口</li>
+<li>描述： 设置 Meilisearch 将使用的 HTTP 地址和端口</li>
+</ul>
+<p><strong>未配置，使用默认值</strong></p>
+<h5 id="主秘钥"><a href="#主秘钥" class="headerlink" title="主秘钥"></a>主秘钥</h5><ul>
+<li>环境变量： MEILI_MASTER_KEY</li>
+<li>命令行： –master-key</li>
+<li>默认值： None</li>
+<li>期望值： 字符串</li>
+<li>描述： 设置实例的主密钥，自动保护除 GET &#x2F;health 之外的所有api。这意味着您将需要一个 API 来访问MeiliSearch，如 POST &#x2F;search 和 GET &#x2F;documents.</li>
+</ul>
+<p><strong>这里我在第一次启动时候未配置，后来发现在首次启动时候会自动生成，遂使用生成的进行配置</strong></p>
+<img src="/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E4%B8%BB%E5%AF%86%E9%92%A5.png" srcset="/img/loading.gif" lazyload class="" title="环境变量-主密钥">
+
+<h4 id="3-3、启动服务"><a href="#3-3、启动服务" class="headerlink" title="3.3、启动服务"></a>3.3、启动服务</h4><p>在上文的路径下打开命令窗口，直接执行<code>meilisearch-windows-amd64.exe</code>,首次启动（未配置主密钥，按文档如果在启动前已配置应该不会自动生成）如下</p>
+<img src="/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E9%A6%96%E6%AC%A1%E5%90%AF%E5%8A%A8.png" srcset="/img/loading.gif" lazyload class="" title="首次启动">
+<p>将生成的密钥复制，按<a href="#%E4%B8%BB%E7%A7%98%E9%92%A5">环境变量配置</a>进行配置后重新打开新的命令窗口，再次执行exe文件</p>
+<img src="/2024/08/08/MeiliSearch%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/%E5%90%AF%E5%8A%A8.png" srcset="/img/loading.gif" lazyload class="" title="启动">
+<p>启动成功后可以在浏览器打开<code>http://localhost:7700/</code> ,按提示输入主密钥即可进行使用了。</p>
 
                 
               </div>
@@ -298,8 +345,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" class="category-chain-item">搜索引擎</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/MeiliSearch/" class="category-chain-item">MeiliSearch</a>
+  
+  
+
   
 
       </span>
@@ -313,11 +367,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue3/" class="print-no-link">#vue3</a>
-      
-        <a href="/tags/ts/" class="print-no-link">#ts</a>
-      
-        <a href="/tags/%E6%8E%A5%E5%8F%A3%E9%98%B2%E6%8A%96/" class="print-no-link">#接口防抖</a>
+        <a href="/tags/windows%E7%8E%AF%E5%A2%83/" class="print-no-link">#windows环境</a>
       
     </div>
   
@@ -329,8 +379,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue3+ts接口请求防抖</div>
-      <div>https://crudby.github.io/2024/06/28/vue3-ts接口请求防抖/</div>
+      <div>MeiliSearch在windows上的安装&amp;配置</div>
+      <div>https://crudby.github.io/2024/08/08/MeiliSearch在windows上的安装-配置/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +392,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年6月28日</div>
+          <div>2024年8月8日</div>
         </div>
       
       
@@ -374,18 +424,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/10/Excel%E5%AF%BC%E5%85%A5%E5%8F%8A%E5%BC%82%E5%B8%B8%E5%9B%9E%E5%86%99%E5%A4%84%E7%90%86/" title="Excel导入及异常回写处理">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Excel导入及异常回写处理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/06/24/%E8%AE%B0%E4%B8%80%E6%AC%A1docker%E9%BB%98%E8%AE%A4%E7%9B%AE%E5%BD%95%E8%BF%81%E7%A7%BB/" title="记一次docker默认目录迁移">
-                        <span class="hidden-mobile">记一次docker默认目录迁移</span>
+                      <a href="/2024/07/29/InfluxDBv2%E5%9C%A8windows%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE/" title="InfluxDBv2在windows上的安装&amp;配置">
+                        <span class="hidden-mobile">InfluxDBv2在windows上的安装&amp;配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

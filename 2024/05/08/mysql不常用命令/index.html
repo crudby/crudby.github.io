@@ -16,24 +16,23 @@
   <meta name="author" content="crudby">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vue3+ts接口请求防抖1、业务背景在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。这里使用的是lodash 库。前端开发环境为node v18.20.2 + vue3 + ts 2、安装依赖12pnpm install --save lodashpnpm install --save-d">
+    <meta name="description" content="mysql不常用命令1、业务背景这里不常用指的是非正常操作的增删改查，偶尔会使用到会需要去查询的sql语句，在此迭代记录。 2、sql命令查询当前线程执行情况执行下面sql，查看当前所有连接线程的执行语句以及执行状态 123SHOW PROCESSLIST;# 或者 区别在于下面可以加where条件SELECT * FROM information_schema.&#96;PROCESSLIST&#96;;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue3+ts接口请求防抖">
-<meta property="og:url" content="https://crudby.github.io/2024/06/28/vue3-ts%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%98%B2%E6%8A%96/index.html">
+<meta property="og:title" content="mysql不常用命令">
+<meta property="og:url" content="https://crudby.github.io/2024/05/08/mysql%E4%B8%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="CRUD日志">
-<meta property="og:description" content="vue3+ts接口请求防抖1、业务背景在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。这里使用的是lodash 库。前端开发环境为node v18.20.2 + vue3 + ts 2、安装依赖12pnpm install --save lodashpnpm install --save-d">
+<meta property="og:description" content="mysql不常用命令1、业务背景这里不常用指的是非正常操作的增删改查，偶尔会使用到会需要去查询的sql语句，在此迭代记录。 2、sql命令查询当前线程执行情况执行下面sql，查看当前所有连接线程的执行语句以及执行状态 123SHOW PROCESSLIST;# 或者 区别在于下面可以加where条件SELECT * FROM information_schema.&#96;PROCESSLIST&#96;;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-28T06:45:37.000Z">
-<meta property="article:modified_time" content="2024-08-08T02:05:01.361Z">
+<meta property="article:published_time" content="2024-05-08T02:07:14.000Z">
+<meta property="article:modified_time" content="2024-08-08T02:15:42.361Z">
 <meta property="article:author" content="crudby">
-<meta property="article:tag" content="vue3">
-<meta property="article:tag" content="ts">
-<meta property="article:tag" content="接口防抖">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="指令">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>vue3+ts接口请求防抖 - CRUD日志</title>
+  <title>mysql不常用命令 - CRUD日志</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">vue3+ts接口请求防抖</span>
+            <span id="subtitle">mysql不常用命令</span>
           
         </div>
 
@@ -210,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-28 14:45" pubdate>
-          2024年6月28日 下午
+        <time datetime="2024-05-08 10:07" pubdate>
+          2024年5月8日 上午
         </time>
       </span>
     
@@ -222,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          299 字
+          106 字
         
       </span>
     
@@ -233,7 +232,7 @@
         
         
         
-          3 分钟
+          1 分钟
         
       </span>
     
@@ -270,16 +269,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">vue3+ts接口请求防抖</h1>
+            <h1 id="seo-header">mysql不常用命令</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="vue3-ts接口请求防抖"><a href="#vue3-ts接口请求防抖" class="headerlink" title="vue3+ts接口请求防抖"></a>vue3+ts接口请求防抖</h2><h3 id="1、业务背景"><a href="#1、业务背景" class="headerlink" title="1、业务背景"></a>1、业务背景</h3><p>在某些原因（网络、客户端或人为）下会导致同一个请求会发送多次，这个情形在前端来做处理的话可以针对接口请求来做防抖，即在多长范围的时间内的操作只处理最后一次。<br>这里使用的是<code>lodash</code> 库。前端开发环境为<code>node v18.20.2 + vue3 + ts</code></p>
-<h3 id="2、安装依赖"><a href="#2、安装依赖" class="headerlink" title="2、安装依赖"></a>2、安装依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">pnpm install --save lodash<br>pnpm install --save-dev @types/lodash<br></code></pre></td></tr></table></figure>
-
-<h4 id="2-1、debounce使用"><a href="#2-1、debounce使用" class="headerlink" title="2.1、debounce使用"></a>2.1、debounce使用</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; debounce &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lodash&#x27;</span>;<br><br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">SearchParams</span> &#123;<br>    <span class="hljs-attr">query</span>: <span class="hljs-built_in">string</span>;<br>&#125;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">performSearch</span>(<span class="hljs-params">params: SearchParams</span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt; &#123;<br>    <span class="hljs-comment">// 模拟异步搜索逻辑</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Searching for &quot;<span class="hljs-subst">$&#123;params.query&#125;</span>&quot;`</span>);<br>    <span class="hljs-comment">// ...实际的搜索逻辑</span><br>&#125;<br><br><span class="hljs-comment">// 使用debounce包装performSearch函数，等待300毫秒后再执行</span><br><span class="hljs-keyword">const</span> debouncedSearch = <span class="hljs-title function_">debounce</span>(<span class="hljs-function">(<span class="hljs-params">params: SearchParams</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">performSearch</span>(params);<br>&#125;, <span class="hljs-number">300</span>);<br><br><span class="hljs-comment">// 假设这是用户输入触发的搜索函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">onSearchInputChange</span>(<span class="hljs-params">query: <span class="hljs-built_in">string</span></span>) &#123;<br>    <span class="hljs-comment">// 当输入变化时，调用防抖后的搜索函数</span><br>    <span class="hljs-title function_">debouncedSearch</span>(&#123; query &#125;);<br>&#125;<br><br><span class="hljs-comment">// 示例调用</span><br><span class="hljs-title function_">onSearchInputChange</span>(<span class="hljs-string">&#x27;typescript&#x27;</span>);<br><span class="hljs-comment">// 在300毫秒内连续调用将不会立即执行performSearch，而是在最后一次调用后的300毫秒后执行</span><br></code></pre></td></tr></table></figure>
-<p><code>lodash</code>库应该是一个工具集成库，还包括<strong>节流</strong>等等，可以百度看看其他简便用法。</p>
+                <h2 id="mysql不常用命令"><a href="#mysql不常用命令" class="headerlink" title="mysql不常用命令"></a>mysql不常用命令</h2><h3 id="1、业务背景"><a href="#1、业务背景" class="headerlink" title="1、业务背景"></a>1、业务背景</h3><p>这里不常用指的是非正常操作的增删改查，偶尔会使用到会需要去查询的sql语句，在此迭代记录。</p>
+<h3 id="2、sql命令"><a href="#2、sql命令" class="headerlink" title="2、sql命令"></a>2、sql命令</h3><h4 id="查询当前线程执行情况"><a href="#查询当前线程执行情况" class="headerlink" title="查询当前线程执行情况"></a>查询当前线程执行情况</h4><p>执行下面sql，查看当前所有连接线程的执行语句以及执行状态</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> PROCESSLIST;<br># 或者 区别在于下面可以加<span class="hljs-keyword">where</span>条件<br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> information_schema.`PROCESSLIST`;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -298,7 +295,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
   
   
 
@@ -313,11 +310,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue3/" class="print-no-link">#vue3</a>
+        <a href="/tags/mysql/" class="print-no-link">#mysql</a>
       
-        <a href="/tags/ts/" class="print-no-link">#ts</a>
-      
-        <a href="/tags/%E6%8E%A5%E5%8F%A3%E9%98%B2%E6%8A%96/" class="print-no-link">#接口防抖</a>
+        <a href="/tags/%E6%8C%87%E4%BB%A4/" class="print-no-link">#指令</a>
       
     </div>
   
@@ -329,8 +324,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue3+ts接口请求防抖</div>
-      <div>https://crudby.github.io/2024/06/28/vue3-ts接口请求防抖/</div>
+      <div>mysql不常用命令</div>
+      <div>https://crudby.github.io/2024/05/08/mysql不常用命令/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +337,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年6月28日</div>
+          <div>2024年5月8日</div>
         </div>
       
       
@@ -374,9 +369,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/10/Excel%E5%AF%BC%E5%85%A5%E5%8F%8A%E5%BC%82%E5%B8%B8%E5%9B%9E%E5%86%99%E5%A4%84%E7%90%86/" title="Excel导入及异常回写处理">
+                      <a href="/2024/06/19/git%E9%85%8D%E7%BD%AEhttp-https%E4%BB%A3%E7%90%86/" title="git配置http/https代理">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Excel导入及异常回写处理</span>
+                        <span class="hidden-mobile">git配置http/https代理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -384,8 +379,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/06/24/%E8%AE%B0%E4%B8%80%E6%AC%A1docker%E9%BB%98%E8%AE%A4%E7%9B%AE%E5%BD%95%E8%BF%81%E7%A7%BB/" title="记一次docker默认目录迁移">
-                        <span class="hidden-mobile">记一次docker默认目录迁移</span>
+                      <a href="/2024/04/01/jar%E5%8C%85%E9%83%A8%E7%BD%B2Linux%E7%9A%84%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="jar包部署Linux的启动脚本">
+                        <span class="hidden-mobile">jar包部署Linux的启动脚本</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

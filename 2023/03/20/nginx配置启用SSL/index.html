@@ -16,15 +16,15 @@
   <meta name="author" content="crudby">
   <meta name="keywords" content="">
   
-    <meta name="description" content="当前环境下CentOS版本：7.6+Nginx版本：1.24.0 nginx首次安装添加SSL在首次安装nginx时，执行.&#x2F;configure 后续添加 –with-http_ssl_module 123456# 添加ssl_module.&#x2F;configure --with-http_stub_status_module --with-http_ssl_module# 编译.&#x2F;make">
+    <meta name="description" content="nginx配置启用SSL1、环境说明12CentOS版本：&#96;7.6+&#96;Nginx版本：&#96;1.24.0&#96;  2、nginx首次安装添加SSL在首次安装nginx时，执行.&#x2F;configure 后续添加 –with-http_ssl_module 123456# 添加ssl_module.&#x2F;configure --with-http_stub_status_module --with-htt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx配置启用SSL">
 <meta property="og:url" content="https://crudby.github.io/2023/03/20/nginx%E9%85%8D%E7%BD%AE%E5%90%AF%E7%94%A8SSL/index.html">
 <meta property="og:site_name" content="CRUD日志">
-<meta property="og:description" content="当前环境下CentOS版本：7.6+Nginx版本：1.24.0 nginx首次安装添加SSL在首次安装nginx时，执行.&#x2F;configure 后续添加 –with-http_ssl_module 123456# 添加ssl_module.&#x2F;configure --with-http_stub_status_module --with-http_ssl_module# 编译.&#x2F;make">
+<meta property="og:description" content="nginx配置启用SSL1、环境说明12CentOS版本：&#96;7.6+&#96;Nginx版本：&#96;1.24.0&#96;  2、nginx首次安装添加SSL在首次安装nginx时，执行.&#x2F;configure 后续添加 –with-http_ssl_module 123456# 添加ssl_module.&#x2F;configure --with-http_stub_status_module --with-htt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-20T04:50:45.000Z">
-<meta property="article:modified_time" content="2024-06-20T05:46:41.254Z">
+<meta property="article:modified_time" content="2024-08-08T02:05:01.358Z">
 <meta property="article:author" content="crudby">
 <meta property="article:tag" content="nginx">
 <meta property="article:tag" content="ssl">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          239 字
+          246 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -274,12 +274,13 @@
             
               <div class="markdown-body">
                 
-                <p>当前环境下<br>CentOS版本：<code>7.6+</code><br>Nginx版本：<code>1.24.0</code></p>
-<h2 id="nginx首次安装添加SSL"><a href="#nginx首次安装添加SSL" class="headerlink" title="nginx首次安装添加SSL"></a>nginx首次安装添加SSL</h2><p>在首次安装nginx时，执行.&#x2F;configure 后续添加 –with-http_ssl_module</p>
+                <h2 id="nginx配置启用SSL"><a href="#nginx配置启用SSL" class="headerlink" title="nginx配置启用SSL"></a>nginx配置启用SSL</h2><h3 id="1、环境说明"><a href="#1、环境说明" class="headerlink" title="1、环境说明"></a>1、环境说明</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">CentOS</span>版本：`<span class="hljs-number">7</span>.<span class="hljs-number">6</span>+`<br><span class="hljs-attribute">Nginx</span>版本：`<span class="hljs-number">1</span>.<span class="hljs-number">24</span>.<span class="hljs-number">0</span>`<br></code></pre></td></tr></table></figure>
+
+<h2 id="2、nginx首次安装添加SSL"><a href="#2、nginx首次安装添加SSL" class="headerlink" title="2、nginx首次安装添加SSL"></a>2、nginx首次安装添加SSL</h2><p>在首次安装nginx时，执行.&#x2F;configure 后续添加 –with-http_ssl_module</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">添加ssl_module</span><br>./configure --with-http_stub_status_module --with-http_ssl_module<br><span class="hljs-meta prompt_"># </span><span class="language-bash">编译</span><br>./make<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装</span><br>./make install<br></code></pre></td></tr></table></figure>
 
 
-<h2 id="nginx已安装下添加SSL"><a href="#nginx已安装下添加SSL" class="headerlink" title="nginx已安装下添加SSL"></a>nginx已安装下添加SSL</h2><p>如果在首次没有添加SSL在nginx.conf中配置ssl证书启用https，在重启时会抛出下面报错：</p>
+<h2 id="3、nginx已安装下添加SSL"><a href="#3、nginx已安装下添加SSL" class="headerlink" title="3、nginx已安装下添加SSL"></a>3、nginx已安装下添加SSL</h2><p>如果在首次没有添加SSL在nginx.conf中配置ssl证书启用https，在重启时会抛出下面报错：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nginx: [emerg] the &quot;ssl&quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37<br></code></pre></td></tr></table></figure>
 <p>此时，需要手动再配置添加上SSL模块，首先切换路径到nginx最初解压目录，例如下载解压路径是<code>/opt/nginx/nginx-1.24.0</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /opt/nginx/nginx-1.24.0/<br></code></pre></td></tr></table></figure>
